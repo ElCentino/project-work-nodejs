@@ -374,14 +374,14 @@ a {
 }
 
 .comments-input textarea {
-    max-width: 300px;
-    max-height: 150px;
+    width: 300px;
+    height: 150px;
     resize: none;
 }
 
 .comments-input input {
-    max-width: 300px;
-    max-height: 35px;
+    width: 300px;
+    height: 35px;
 }
 
 .comments-table {
