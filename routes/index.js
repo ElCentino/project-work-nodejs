@@ -37,8 +37,7 @@ module.exports.details = (req, res) => {
             };
         
             res.render('details', {
-    
-                title: "Store - CE Ghana",
+
                 profiles: data[0],
                 books: result,
                 shuffle : arr => {
