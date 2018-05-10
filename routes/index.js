@@ -36,6 +36,7 @@ module.exports.details = (req, res) => {
     
         res.render('details', {
 
+            title: "Store - CE Ghana",
             profiles: data[0],
             books: result,
             shuffle : arr => {
@@ -56,3 +57,10 @@ module.exports.details = (req, res) => {
         });
     });
 };
+
+module.exports.E404 = (req, res) => {
+
+    res.render('404', {
+        title: "404 File Not Found"
+    });
+}

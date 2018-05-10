@@ -11,6 +11,7 @@ app.use(express.static('./public'));
 
 app.get('/', routes.index);
 app.get('/details', routes.details);
+app.get('*', routes.E404);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
