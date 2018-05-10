@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <% include partials/components/details/config %>
-    </head>
+
+<head>
+    <% include partials/components/details/config %>
+</head>
+
 <body>
 
     <% include partials/components/details/header %>
 
-    <section>
-        
-        <% include partials/components/details/footer %>
-           
-    </section>
-    
-    <% include partials/components/common/jsdefaults %>
-    
+        <style>
+            .E404 {
+                padding: 200px;
+            }
+
+            .error-message {
+                text-align: center;
+                font-size: 50px;
+                color: rgb(16, 163, 163);
+            }
+        </style>
+
+        <section>
+
+            <section class="E404">
+                <h1 class="error-message"> Sorry the requested URL could not be found</h1>
+            </section>
+            <% include partials/components/details/footer %>
+
+        </section>
+
+        <% include partials/components/common/jsdefaults %>
+
 </body>
+
 </html>

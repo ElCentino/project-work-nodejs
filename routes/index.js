@@ -15,34 +15,18 @@ module.exports.index = (req, res) => {
 
 module.exports.details = (req, res) => {
 
-    database.query("SELECT * FROM book", result => {
+    if(!isNaN(req.query.book_id)) {
 
-        const index = req.query.book_id;
+        database.query("SELECT * FROM book", result => {
 
-        const data = result.filter(book => book.id == index);
-
-        const shuffleData = arr => {
-
-            for(let i = arr.length -1; i > 0; i--) {
+            const index = req.query.book_id;
     
-                var randomIndex = Math.floor(Math.random() * (i + 1));
-                var tempVal = arr[i];
-                arr[i] = arr[randomIndex];
-                arr[randomIndex] = tempVal;
-            }
-
-            return arr;
-        };
+            const data = result.filter(book => book.id == index);
     
-        res.render('details', {
-
-            title: "Store - CE Ghana",
-            profiles: data[0],
-            books: result,
-            shuffle : arr => {
+            const shuffleData = arr => {
     
                 for(let i = arr.length -1; i > 0; i--) {
-    
+        
                     var randomIndex = Math.floor(Math.random() * (i + 1));
                     var tempVal = arr[i];
                     arr[i] = arr[randomIndex];
@@ -50,12 +34,36 @@ module.exports.details = (req, res) => {
                 }
     
                 return arr;
-            },
-            filterOddBook: (book) => {
-                return book.id !== data[0].id;
-            }
+            };
+        
+            res.render('details', {
+    
+                title: "Store - CE Ghana",
+                profiles: data[0],
+                books: result,
+                shuffle : arr => {
+        
+                    for(let i = arr.length -1; i > 0; i--) {
+        
+                        var randomIndex = Math.floor(Math.random() * (i + 1));
+                        var tempVal = arr[i];
+                        arr[i] = arr[randomIndex];
+                        arr[randomIndex] = tempVal;
+                    }
+        
+                    return arr;
+                },
+                filterOddBook: (book) => {
+                    return book.id !== data[0].id;
+                }
+            });
         });
-    });
+    } else {
+
+        res.render('404', {
+            title: "404 File Not Found"
+        });
+    }  
 };
 
 module.exports.E404 = (req, res) => {
