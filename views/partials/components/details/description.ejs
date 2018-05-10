@@ -1,0 +1,91 @@
+<div class="body-details move-down-sm">
+    <div class="detail-container">
+        <div class="preview">
+            <div class="detail-display">
+                <div class="book-display-view">
+                    <img class="book-display" src="/image/<%= image %>" />
+                    <div class="book-display-info">
+                        <section>
+
+                        </section>
+                    </div>
+                </div>
+
+                <a href="#book-ref">
+                    <button type="submit" class="btn-butt rounded-button-sm" style="margin-top: 70px">
+                        <i class="far fa-hdd" style="float: left; margin-left: 20px"></i>More Details</button>
+                </a>
+            </div>
+        </div>
+        <div class="book-details">
+            <article>
+                <header class="book-header">
+                    <h1 id="book-title">
+                        <%= title %>
+                    </h1>
+                    <span id="book-author">
+                        <%= author %>
+                    </span>
+                    <span id="book-batch" class="badges">New Release!</span>
+                </header>
+                <figure class="info-figure">
+                    <p>
+                        <%= description %>
+                    </p>
+                </figure>
+
+                <a href="checkout.php?c=<%= id %>">
+                    <button type="submit" class="btn-butt rounded-button-sm buy-button" style="margin-top: 70px">
+                        <i class="fas fa-shopping-cart" style="float: left; margin-left: 20px"></i>Buy Now</button>
+                </a>
+
+                <button type="submit" class="btn-butt rounded-button-sm cart-button" style="margin-top: 70px">
+                    <i class="fas fa-shopping-cart" style="float: left; margin-left: 20px"></i>Add to Cart</button>
+            </article>
+        </div>
+        <div class="clear-fix"></div>
+    </div>
+</div>
+<div class="clear-fix"></div>
+
+<div id="book-ref" class="book-info about">
+    <div class="detail-container about-books">
+        <div class="preview about-preview">
+            <div class="detail-display about-display">
+                <h1 class="details-header">Book Details</h1>
+                <table class="details-table">
+                    <tr>
+                        <td>ISBN 13</td>
+                        <td>
+                            <%= sbn %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Paperback</td>
+                        <td>
+                            <%= binding %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td>
+                            <strong>GHC
+                                <strong>
+                                    <%= Price %>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="book-details about-details">
+            <div class="full-details">
+                <h1 class="details-header">Book Description</h1>
+                <p>
+                    <%= description %>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="clear-fix"></div>
+</div>
