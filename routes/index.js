@@ -97,7 +97,7 @@ module.exports.signupValidation = (req, res) => {
             var atPos = email.indexOf('@');
             var dotPos = email.lastIndexOf('.');
 
-            if((atPos <= 0 || dotPos <= 0) || dotPos - atPos < 1) {
+            if((atPos <= 0 || dotPos <= 0) || dotPos - atPos <= 1) {
 
                 res.render("signup", {
                     message: "Invalid Email",
@@ -110,7 +110,7 @@ module.exports.signupValidation = (req, res) => {
 
         let found = false;
 
-        result.findIndex(user => {
+        result.forEach(user => {
 
             if(user.email === email || user.username == username) {
 
@@ -125,7 +125,7 @@ module.exports.signupValidation = (req, res) => {
                     
                     var statement = `
                     INSERT INTO users (fullname, email, password, username) VALUES ('${fullname}', '${email}', '${password}', '${username}')
-                     `;
+                    `;
 
                     database.query(statement, result => {
 
