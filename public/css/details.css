@@ -341,6 +341,7 @@ a {
 .recommended-section ul li {
     display: inline-block;
     margin: 10px;
+    margin-left: 40px;
 }
 
 .recommended-section img {
@@ -354,10 +355,12 @@ a {
 }
 
 /*Coments section begins*/
+/*Coments section begins*/
 
 .comments-section {
     width: 100%;
     background: var(--ash);
+    overflow-x: hidden;
 }
 .comments-header {
     color: white;
@@ -389,7 +392,7 @@ a {
 }
 
 .comments-table td {
-    padding: 50px;
+    padding: 10px;
     padding-left: 10px;
 }
 
@@ -407,6 +410,7 @@ a {
 .comments-icon li {
     display: inline-block;
     margin: 10px;
+    margin-left: inherit;
 }
 
 .comments-text {
@@ -414,14 +418,19 @@ a {
 }
 
 #comments-icon {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
 }
 
 .comments-header-icons {
     font-size: 18px;
-    margin-top: 70%;
+    margin-top: 20%;
     color: var(--cyan);
+}
+
+.comments-submit {
+    padding: 0px;
+    margin: 0px;
 }
 
 /** Icon Configs **/
@@ -691,11 +700,34 @@ a {
         float: none;
         width: 100%;
     }
+
+    .mid-footer ul {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .recommended-section {
+        width: 100%;
+        padding: 0px;
+        margin-top: 30px;
+    }
 }
 
 @media screen and (max-width: 380px) {
 
     * {
         font-size: 12px;
+    }
+
+    .preview img {
+        width: 100%;
+    }
+
+    .header-mid {
+        font-size: 14px;
+    }
+
+    .recommended-section img {
+        width: 100%;
     }
 }

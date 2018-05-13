@@ -66,6 +66,82 @@ module.exports.details = (req, res) => {
     }  
 };
 
+module.exports.signup = (req, res) => {
+
+    res.render('signup');
+};
+
+module.exports.signupValidation = (req, res) => {
+
+    const {
+        fullname, 
+        email,
+        password,
+        password2 : cpassword,
+        username
+    } = req.body;
+
+    database.query("SELECT * FROM users", result => {
+
+        if(password !== cpassword) {
+            res.render("signup", {
+                message: "Passwords do not match",
+                status: "danger"
+            });
+
+            return;
+        }
+
+        if(email) {
+
+            var atPos = email.indexOf('@');
+            var dotPos = email.lastIndexOf('.');
+
+            if((atPos <= 0 || dotPos <= 0) || dotPos - atPos < 1) {
+
+                res.render("signup", {
+                    message: "Invalid Email",
+                    status: "danger"
+                });
+    
+                return;
+            }
+        }
+
+        let found = false;
+
+        result.findIndex(user => {
+
+            if(user.email === email || user.username == username) {
+
+                res.render("signup", {
+                    message: "Email is in use",
+                    status: "danger"
+                });
+
+            } else {
+
+                if(found === false) {
+                    
+                    var statement = `
+                    INSERT INTO users (fullname, email, password, username) VALUES ('${fullname}', '${email}', '${password}', '${username}')
+                     `;
+
+                    database.query(statement, result => {
+
+                        res.render("signup", {
+                            message: "You are now Registered",
+                            status: "success"
+                        });
+                    });
+
+                    found = true;
+                }
+            }
+        });
+    });
+}
+
 module.exports.E404 = (req, res) => {
 
     res.render('404', {

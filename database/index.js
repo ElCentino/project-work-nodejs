@@ -2,10 +2,10 @@ const mysql = require('mysql');
 
 const conn = mysql.createConnection({
     
-    host: "mysql7002.site4now.net",
-    user: "lqpgny8x_ceghana",
-    password: "savour2how.roll",
-    database: "lqpgny8x_project"
+    host: "localhost",
+    user: "root",
+    password: "root",
+    database: "project"
 });
 
 conn.connect(err => {

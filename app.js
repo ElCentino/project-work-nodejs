@@ -9,12 +9,15 @@ app.set('view engine', 'ejs');
 
 app.use(express.static('./public'));
 
-app.get('/', routes.index);
-app.get('/details', routes.details);
-app.get('*', routes.E404);
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+
+app.get('/', routes.index);
+app.get('/details', routes.details);
+app.get('/account/signup', routes.signup);
+app.post('/account/signup', routes.signupValidation);
+app.get('*', routes.E404);
+
 
 app.use(cors());
 
