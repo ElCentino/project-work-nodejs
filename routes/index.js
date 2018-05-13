@@ -96,7 +96,7 @@ module.exports.signupValidation = (req, res) => {
             var atPos = email.indexOf('@');
             var dotPos = email.lastIndexOf('.');
 
-            if((atPos <= 0 || dotPos <= 0) || dotPos - atPos <= 1) {
+            if((atPos <= 0 || dotPos <= 0) || dotPos - atPos <= 1 || !email.endsWith("com")) {
 
                 res.render("signup", {
                     message: "Invalid Email",
