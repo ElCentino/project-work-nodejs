@@ -107,6 +107,16 @@ module.exports.signupValidation = (req, res) => {
             }
         }
 
+        if(username.indexOf(" ") !== -1) {
+
+            res.render("signup", {
+                message: "Invalid Username",
+                status: "danger"
+            });
+            
+            return;
+        }
+
         let found = false;
 
         result.forEach(user => {
