@@ -11,6 +11,8 @@ const conn = mysql.createConnection({
 conn.connect(err => {
     
     if(err) throw err;
+
+    console.log("Connection to database Successfull");
 });
 
 module.exports.query = function(sql, callback) {

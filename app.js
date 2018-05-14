@@ -16,6 +16,8 @@ app.get('/', routes.index);
 app.get('/details', routes.details);
 app.get('/account/signup', routes.signup);
 app.post('/account/signup', routes.signupValidation);
+app.get("/api/userslist", routes.userslist);
+app.get("/api/userslist/:id", routes.userslist);
 app.get('*', routes.E404);
 
 

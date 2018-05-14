@@ -2,7 +2,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sign Up - CE Ghana</title>
+  <title>Sign Up - CE Ghana</title>
+  
+  <% if(typeof redirect !== 'undefined') { %>
+
+    <script>
+      setTimeout(function() {
+        window.location.replace("/");
+      }, 5000);
+    </script>
+  <% } %>
 </head>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <style type="text/css">

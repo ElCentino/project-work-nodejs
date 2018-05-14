@@ -70,7 +70,7 @@ module.exports.signup = (req, res) => {
     res.render('signup');
 };
 
-module.exports.signupValidation = (req, res) => {
+module.exports.signupValidation = (req, res, next) => {
 
     const {
         fullname, 
@@ -139,8 +139,9 @@ module.exports.signupValidation = (req, res) => {
                     database.query(statement, result => {
 
                         res.render("signup", {
-                            message: "You are now Registered",
-                            status: "success"
+                            message: "You are now Registered, Redirecting....",
+                            status: "success",
+                            redirect: true
                         });
                     });
 
@@ -149,6 +150,47 @@ module.exports.signupValidation = (req, res) => {
             }
         });
     });
+};
+
+module.exports.userslist = (req, res) => {
+
+    if(req.params.id) {
+        
+        if(req.params.id == 1) {
+            res.end("<h1 style='font-size: 50px'>Aceess Denied</h1>");
+        } else {
+
+            database.query(`SELECT id, fullname, username, email FROM users WHERE id = ${req.params.id}`, result => {
+
+                renderAllUsers(res, result);
+            });
+        }
+    } else {
+
+        if(req.query.length) {
+
+            database.query(`SELECT ${req.query.names == "yes" ? "id, fullname" : "id, fullname, username, email"}  FROM users LIMIT ${req.query.length}`, result => {
+
+                renderShiftedUsers(res, result);
+            });
+    
+        } else {
+    
+            database.query("SELECT id, fullname, username, email FROM users", result => {
+                
+                renderShiftedUsers(res, result);
+            });
+        }
+    }  
+};
+
+function renderShiftedUsers(res, result) {
+    result.shift();
+    res.json(result);
+}
+
+function renderAllUsers(res, result) {
+    res.json(result);
 }
 
 module.exports.E404 = (req, res) => {
@@ -156,4 +198,4 @@ module.exports.E404 = (req, res) => {
     res.render('404', {
         title: "404 File Not Found"
     });
-}
+};
