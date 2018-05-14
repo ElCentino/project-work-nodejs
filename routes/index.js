@@ -1,5 +1,3 @@
-const db = require('../resourses/books.json');
-
 const database = require('../database');
 
 module.exports.index = (req, res) => {
@@ -151,47 +149,6 @@ module.exports.signupValidation = (req, res, next) => {
         });
     });
 };
-
-module.exports.userslist = (req, res) => {
-
-    if(req.params.id) {
-        
-        if(req.params.id == 1) {
-            res.end("<h1 style='font-size: 50px'>Aceess Denied</h1>");
-        } else {
-
-            database.query(`SELECT id, fullname, username, email FROM users WHERE id = ${req.params.id}`, result => {
-
-                renderAllUsers(res, result);
-            });
-        }
-    } else {
-
-        if(req.query.length) {
-
-            database.query(`SELECT ${req.query.names == "yes" ? "id, fullname" : "id, fullname, username, email"}  FROM users LIMIT ${req.query.length}`, result => {
-
-                renderShiftedUsers(res, result);
-            });
-    
-        } else {
-    
-            database.query("SELECT id, fullname, username, email FROM users", result => {
-                
-                renderShiftedUsers(res, result);
-            });
-        }
-    }  
-};
-
-function renderShiftedUsers(res, result) {
-    result.shift();
-    res.json(result);
-}
-
-function renderAllUsers(res, result) {
-    res.json(result);
-}
 
 module.exports.E404 = (req, res) => {
 

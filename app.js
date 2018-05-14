@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const routes = require('./routes');
+const apiRoutes = require('./routes/api');
 
 const app = express();
 
@@ -16,8 +17,10 @@ app.get('/', routes.index);
 app.get('/details', routes.details);
 app.get('/account/signup', routes.signup);
 app.post('/account/signup', routes.signupValidation);
-app.get("/api/userslist", routes.userslist);
-app.get("/api/userslist/:id", routes.userslist);
+app.get("/api/userslist", apiRoutes.userslist);
+app.get("/api/userslist/:id", apiRoutes.userslist);
+app.get("/api/library", apiRoutes.library);
+app.get("/api/library/:id", apiRoutes.library);
 app.get('*', routes.E404);
 
 
