@@ -60,19 +60,12 @@ module.exports.library = (req, res) => {
         });
     } else {
 
-        if(req.query.length) {
+        database.query("SELECT * FROM book", colums => {
 
-            database.query(`SELECT id, title, author, sbn, binding, Price, description FROM book LIMIT ${req.query.length}`, result => {
-
-                renderAllResults(res, result);
-            });
-    
-        } else {
-    
-            database.query("SELECT id, title, author, sbn, binding, Price, description FROM book", result => {
+            database.query(`SELECT id, title, author, sbn, binding, Price, description FROM book WHERE ${typeof req.query.author != 'undefined' ? "author = " : "id > "}  '${typeof req.query.author != 'undefined' ? req.query.author : "-1"}'ORDER BY ${req.query.col || "id"} ${req.query.order == "desc" ? "DESC" : "ASC"} LIMIT ${req.query.length || colums.length}`, result => {
                 
                 renderAllResults(res, result);
             });
-        }
+        });
     }
 };
