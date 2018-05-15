@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include partials/components/details/config %>
+</head>
+
+<body>
+
+    <% include partials/components/details/header %>
+
+        <style>
+            .api-body {
+                padding: 90px 50px;
+            }
+
+            .api-header {
+                text-align: left;
+                font-size: 45px;
+                color: rgb(16, 163, 163);
+            }
+
+            .api-list {
+                list-style-type: none;
+            }
+
+            .api-list > li {
+                padding-left: 30px;
+                margin: 60px;
+                margin-left: 0;
+                font-size: 30px;
+                
+            }
+
+            .api-list li article {
+                padding-left: 20px;
+                margin-top: 20px;
+            }
+
+            .api-list li article ul {
+                list-style-type: none;
+                margin-left: 40px;
+                border-left: 5px rgb(250, 121, 0) solid;
+            }
+
+            .api-list li article ul li {
+                font-size: 18px;
+                padding-left: 40px;
+                margin: 20px 0;
+            }
+
+            .api-list li article h5 {
+                color: rgb(85, 85, 85);
+            }
+
+            .api-list li a {
+                color: rgb(34, 209, 209);
+            }
+
+            .api-list li a:hover {
+                color: rgb(250, 121, 0);
+            }
+
+            @media screen and (max-width: 780px) {
+
+                .E404 {
+                    padding: 30px 5px;
+                }
+
+                .api-list li article ul {
+                    margin-left: 5px;
+                }
+
+                .api-list li article ul li {
+                    font-size: 15px;
+                    padding-left: 5px;
+                    margin-bottom: 20px;
+                }
+            }
+        </style>
+
+        <section>
+
+            <section class="api-body">
+                <h1 class="api-header">Welcome to our API gateway</h1>
+                
+                <ul class="api-list">
+                    <li><a href="/api/library">Directory For Library API in JSON Format</a>
+                        <article>
+                            <h5>Queries</h5>
+                            <ul>
+                                <li>author : Sorts API based on the author's name</li>
+                                <li>col : Sorts API based on a field (params : id, title, sbn, email, description and author)</li>
+                                <li>order : This is used in conjuction with the col query</li>
+                                <li>length: Limits the number of results show</li>
+                                <li>When at library api, use /[id] to return only one specific result</li>
+                            </ul>
+                        </article>
+                    </li>
+                    <li><a href="/api/userslist">Directory For Users API in JSON Format</a>
+                        <article>
+                                <h5>Queries</h5>
+                                <ul>
+                                    <li>names [yes | anything] : Displays only names and IDs</li>
+                                    <li>length: Limits the number of results show</li>
+                                    <li>When at Users List api, use /[id] to return only one specific result</li>
+                                </ul>
+                            </article>
+                    </li>
+                </ul>
+
+            </section>
+            <% include partials/components/details/footer %>
+
+        </section>
+
+        <% include partials/components/common/jsdefaults %>
+
+</body>
+
+</html>
