@@ -150,6 +150,11 @@ module.exports.signupValidation = (req, res, next) => {
     });
 };
 
+module.exports.apiPath = (req, res) => {
+
+    res.render('api', {title: "CEG APIs"});
+};
+
 module.exports.E404 = (req, res) => {
 
     res.render('404', {

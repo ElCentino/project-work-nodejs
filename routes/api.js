@@ -38,7 +38,7 @@ module.exports.userslist = (req, res) => {
     
         } else {
     
-            database.query("SELECT id, fullname, username, email FROM users", result => {
+            database.query(`SELECT ${req.query.names == "yes" ? "id, fullname" : "id, fullname, username, email"} FROM users`, result => {
                 
                 renderShiftedResults(res, result);
             });

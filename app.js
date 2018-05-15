@@ -17,16 +17,14 @@ app.get('/', routes.index);
 app.get('/details', routes.details);
 app.get('/account/signup', routes.signup);
 app.post('/account/signup', routes.signupValidation);
+app.get('/api', routes.apiPath);
 app.get("/api/userslist", apiRoutes.userslist);
 app.get("/api/userslist/:id", apiRoutes.userslist);
 app.get("/api/library", apiRoutes.library);
 app.get("/api/library/:id", apiRoutes.library);
 app.get('*', routes.E404);
 
-
 app.use(cors());
-
-
 
 const server = app.listen(process.env.PORT || 3000, () => {
 
