@@ -4,7 +4,8 @@
   "description": "An App",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "mocha"
   },
   "author": "Me",
   "license": "ISC",
@@ -12,11 +13,12 @@
     "express": "^4.16.3",
     "mysql": "^2.15.0"
   },
-
   "devDependencies": {
     "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
-    "ejs": "^2.6.1"
+    "ejs": "^2.6.1",
+    "mocha": "^5.1.1"
   }
 }
