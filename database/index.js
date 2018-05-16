@@ -8,12 +8,19 @@ const conn = mysql.createConnection({
     database: 'nodetestdb'
 });
 
-conn.connect(err => {
-    
-    if(err) throw err;
+try {
 
-    console.log("Connection to database Successfull");
-});
+    conn.connect(err => {
+    
+        if(err) throw err;
+    
+        console.log("Connection to database Successfull");
+    });
+
+} catch(error) {
+    
+    console.log("Could not connect to database : " + error);
+}
 
 module.exports.query = function(sql, callback) {
     

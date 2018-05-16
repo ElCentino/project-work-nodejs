@@ -152,7 +152,7 @@ module.exports.signupValidation = (req, res, next) => {
 
 module.exports.apiPath = (req, res) => {
 
-    res.render("api", {title: "CEG APIs"});
+    res.render("api", {title: "CE Ghana APIs"});
 };
 
 module.exports.E404 = (req, res) => {
