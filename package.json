@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "mocha"
+    "test": "node_modules/.bin/mocha --reporter mocha-circleci-reporter test/*.js"
   },
   "author": "Me",
   "license": "ISC",
@@ -19,6 +19,7 @@
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
     "ejs": "^2.6.1",
-    "mocha": "^5.1.1"
+    "mocha": "^5.1.1",
+    "mocha-circleci-reporter": "0.0.3"
   }
 }
