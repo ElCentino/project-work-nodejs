@@ -4,6 +4,7 @@
   "description": "An App",
   "main": "app.js",
   "scripts": {
+    "prestart" : "mocha",
     "start": "node app.js",
     "test": "node_modules/.bin/mocha --reporter mocha-circleci-reporter test/*.js"
   },

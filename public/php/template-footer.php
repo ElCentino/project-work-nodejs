@@ -2,12 +2,12 @@
             <section>
                 <h3>Contact Us</h3>
                 <p class="meta-footer-text">Get in touch
-                    <a class="sm-link">here</a> if you have any queries or issues.</p>
+                    <span class="sm-link">here</span> if you have any queries or issues.</p>
             </section>
             <section>
                 <h3>Help & Support</h3>
                 <p class="meta-footer-text">Click
-                    <a class="sm-link">here</a> for FAQs, order information, T&Cs, errata and code downloads.</p>
+                    <span class="sm-link">here</span> for FAQs, order information, T&Cs, errata and code downloads.</p>
             </section>
             <section>
                 <h3>Alerts & Offers</h3>
@@ -20,7 +20,7 @@
                         <ul>
                             <h3>The Company</h3>
                             <li>
-                                <a href="#about-section">About Us </a>
+                                <a href="#">About Us </a>
                             </li>
                             <li>
                                 <a href="#">Contact us </a>
@@ -47,7 +47,7 @@
                                 <a href="#">Rental Agreement</a>
                             </li>
                             <li>
-                                <a href="app/help.php">Help</a>
+                                <a href="#">Help</a>
                             </li>
                             <li>
                                 <a href="#">How to Return</a>

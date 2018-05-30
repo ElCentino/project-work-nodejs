@@ -1,0 +1,111 @@
+:root {
+    --orange: rgb(245, 139, 52);
+    --milk: rgb(235, 232, 232);
+    --ash: rgb(46, 46, 54);
+    --ash-light: rgb(59, 59, 70);
+    --gray: rgb(168, 167, 167);
+    --cyan: rgb(37, 196, 196);
+}
+
+
+
+.footer {
+    width: 100%;
+    padding: 20px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgb(187, 187, 187);
+    background: rgb(59, 59, 70);
+    overflow: hidden;
+}
+
+.footer h3 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.footer section {
+    float: left;
+    width: 29.2%;
+    margin: 2% 2%;
+}
+
+.pro-footer {
+    width: 100%;
+    padding: 5px 20px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgb(187, 187, 187);
+    background: rgb(46, 46, 54);
+    overflow: hidden;
+}
+
+.pro-footer article {
+    float: left;
+    width: 20.3%;
+    margin: 2% 2%;
+    text-align: center;
+}
+
+.mid-footer {
+    width: 100%;
+    padding: 30px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgb(187, 187, 187);
+    background: var(--ash);
+    overflow: hidden;
+}
+
+.mind-footer ul li a:hover {
+    color: var(--cyan);
+}
+
+.mid-footer ul {
+    list-style-type: none;
+    display: inline-block;
+    width: 28%;
+}
+
+.sm-link {
+    color: var(--cyan);
+}
+
+.sm-link:hover {
+    cursor: pointer;
+}
+
+.AO {
+    width: 30%;
+}
+
+.AO-input {
+    width: 200px;
+    height: 40px;
+} 
+
+.btn-butt {
+    width: 100%;
+    height: 40px;
+    font-size: 15px;
+    vertical-align: center;
+    border: none;
+    margin: 0 auto;
+    background-color: var(--cyan);
+    transition: 0.2s ease-in-out;
+}
+
+.btn-butt:hover {
+    background: cyan;
+    cursor: pointer;
+}
+
+.input-default {
+    padding: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+    background: rgb(41, 41, 46);
+    color: white;
+    border: none;
+}

@@ -10,7 +10,7 @@ describe("Connect()", function() {
 
         var test = lib.connect(function(result) {
 
-            expect(result).to.be.ok;
+            expect(result).to.equal("Connected to database");
             done();
         });
     });

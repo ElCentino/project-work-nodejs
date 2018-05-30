@@ -8,6 +8,14 @@ const conn = mysql.createConnection({
     database: 'nodetestdb'
 });
 
+// const conn = mysql.createConnection({ 
+//     host: 'localhost',
+//     port: 3306,
+//     user: 'root',
+//     password: 'root',
+//     database: 'elcentino'
+// });
+
 try {
 
     conn.connect(err => {

@@ -5,13 +5,15 @@
     --ash-light: rgb(59, 59, 70);
     --gray: rgb(168, 167, 167);
     --cyan: rgb(37, 196, 196);
+    --redish: #ee5253;
 }
 
 * {
     padding: 0px;
     margin: 0px;
     font-family: 'Ubuntu', sans-serif;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 .top {
@@ -24,6 +26,7 @@
 }
 
 .top-border-bottom {
+    -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
     background-color: rgba(46, 46, 54, 0.705);
     border-bottom: 5px var(--orange) solid;
@@ -107,6 +110,7 @@ a {
     font-weight: bold;
     color: black;
     margin-top: 10px;
+    -webkit-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
 }
 
@@ -207,6 +211,7 @@ a {
     border: none;
     margin: 0 auto;
     background-color: var(--cyan);
+    -webkit-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
 }
 
@@ -345,13 +350,8 @@ a {
 }
 
 .recommended-section img {
-    width: 200px;
-    height: 300px;
-}
-
-.rec-img-details ul:nth-child(2), .rec-img-details ul:nth-child(3) {
-    width: 300px;
-    height: 400px;
+    width: 150px;
+    height: 250px;
 }
 
 /*Coments section begins*/
@@ -359,7 +359,6 @@ a {
 .comments-section {
     width: 100%;
     background: var(--ash);
-    overflow-x: hidden;
 }
 .comments-header {
     color: white;
@@ -445,9 +444,10 @@ a {
     left: -10px;
     z-index: 900;
     text-align: center;
-    box-shadow: 0px 0px 0px 0px;
-    transform: scale(0.75);
-    z-index: 100;
+    -webkit-box-shadow: 0px 0px 0px 0px;
+            box-shadow: 0px 0px 0px 0px;
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
 }
 
 .icon-con {
@@ -462,7 +462,9 @@ a {
     border-radius: 10px;
     padding: 10px;
     background: #03b1a8;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.226) inset;
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.226) inset;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.226) inset;
+    -webkit-transition: 0.4s ease-in-out;
     transition: 0.4s ease-in-out;
 }
 
@@ -526,7 +528,7 @@ a {
     overflow: hidden;
 }
 
-.mind-footer ul li a:hover {
+.mid-footer ul li a:hover {
     color: var(--cyan);
 }
 
@@ -537,7 +539,8 @@ a {
 }
 
 .sm-link {
-    color: var(--cyan);
+    font-family: 'Pacifico', cursive;
+    color: var(--redish);
 }
 
 .mid-footer h3 {
@@ -583,7 +586,9 @@ a {
 
 ::-webkit-scrollbar-thumb
 {
-	background-color: cyan;	
+    -webkit-transition: .3s;
+    transition: .3s;
+	background-color: var(--redish);	
 	background-image: -webkit-linear-gradient(45deg,
 	                                          rgba(255, 255, 255, .2) 25%,
 											  transparent 25%,
@@ -592,6 +597,54 @@ a {
 											  rgba(255, 255, 255, .2) 75%,
 											  transparent 75%,
 											  transparent)
+}
+
+.bottom-nav * {
+    padding: 10px;
+}
+
+.face_active {
+    width: 40px;
+    height: 40px;
+    background-image: url("../image/face_active.png");
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+
+.twitt_active {
+    width: 40px;
+    height: 40px;
+    background-image: url("../image/twitt_active.png");
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+
+.skype_active {
+    width: 40px;
+    height: 40px;
+    background-image: url("../image/skype_active.png");
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+
+.insta_active {
+    width: 40px;
+    height: 40px;
+    background-image: url("../image/insta_active.png");
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+
+.face_active, .skype_active, .insta_active, .twitt_active {
+    transition: .2s ease-in-out;
+}
+
+.face_active:hover, .skype_active:hover, .insta_active:hover, .twitt_active:hover {
+    filter: invert(100%);
 }
 
 /* Responsive Code begins*/
@@ -608,7 +661,7 @@ a {
     }
 
     .preview img {
-        width: 500px;
+        width: 300px;
     }
 
     .about-display {
@@ -692,6 +745,12 @@ a {
         max-width: 250px;
     }
 
+    
+    .mid-footer ul {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
     .search-area input[type=text] {
         width: 100%;
     }
@@ -700,34 +759,11 @@ a {
         float: none;
         width: 100%;
     }
-
-    .mid-footer ul {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .recommended-section {
-        width: 100%;
-        padding: 0px;
-        margin-top: 30px;
-    }
 }
 
 @media screen and (max-width: 380px) {
 
     * {
         font-size: 12px;
-    }
-
-    .preview img {
-        width: 100%;
-    }
-
-    .header-mid {
-        font-size: 14px;
-    }
-
-    .recommended-section img {
-        width: 100%;
     }
 }

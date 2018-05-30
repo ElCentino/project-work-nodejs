@@ -15,3 +15,4 @@ function draw() {
         $(".icon").fadeOut();
     }
 }
+

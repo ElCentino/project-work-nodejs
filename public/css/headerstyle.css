@@ -1,0 +1,54 @@
+*{
+  margin:0 auto;
+  padding:  0 auto;
+
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li {
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.left, .right, .center {
+  width: 30%;
+  margin: 0;
+  padding: 0;
+}
+
+.right {
+  width: 30%;
+}
+
+.center {
+  width: 30%;
+}
+
+#login{
+  border: 1px solid white;
+  height: 30px;
+  width:50px;
+  line-height: 30px;
+  border-radius: 5px;
+  padding-left: 2px;
+  background-color:#26dac3;
+  border-color: #26dac3;
+}
+
+.menu-bar {
+  width: 100%;
+  padding: 10px;
+  background: rgb(28, 28, 41);
+  box-shadow: 3px 1px 10px rgba(20, 20, 29, 0.416), 0px 1px 10px rgba(20, 20, 29, 0.416);
+}
+
+.clear {
+  clear: both;
+}
