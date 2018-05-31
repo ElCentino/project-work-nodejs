@@ -26,6 +26,8 @@ $(document).ready(function() {
     $(".ministries-area ul li").on('click', function(e) {
       $(this).addClass("side-active");
       $(".ministries-area ul li").not(this).removeClass("side-active");
+      let position = $(".ministries-area").offset().top;
+      animateToPosition(position, 1000);
     });
 
     $(".locations-area-list li, .locator-nav").on('click', function(e) {
