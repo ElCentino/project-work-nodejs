@@ -117,6 +117,6 @@ $(document).ready(function () {
     function scrollToMinistries() {
 
         let position = $(".ministries-area").offset().top;
-        body.stop().animate({scrollTop: position}, 1000, 'swing');
+        document.body.stop().animate({scrollTop: position}, 1000, 'swing');
     }
 });
