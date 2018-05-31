@@ -105,18 +105,20 @@ $(document).ready(function () {
     $(".next-button").on('click', function() {
         nextRequest.call(this);
 
-        $(".ministries-area ul li").on('click', function(e) {
-            let position = $(".ministries-area").offset().top;
-            animateToPosition(position, 1000);
-        });
+        scrollToMinistries.call(this);
     });
 
     $(".prev-button").on('click', function() {
         prevRequest.call(this);
 
-        $(".ministries-area ul li").on('click', function(e) {
+        scrollToMinistries.call(this);
+    });
+
+    function scrollToMinistries() {
+
+        $(this).on('click', function(e) {
             let position = $(".ministries-area").offset().top;
             animateToPosition(position, 1000);
         });
-    });
+    }
 });
