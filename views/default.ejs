@@ -1,4 +1,7 @@
-<?php include './app/db.php'; ?>
+
+<% const trendingBooks = books.slice(0, 5) %>
+<% const featuredBooks = books.slice(5, 10) %>
+
 <!DOCTYPE html>
 <html>
 
@@ -216,43 +219,25 @@
               <p class="trending-header header-reddish" style="font-size: 40px;">Trending Books</p>
 
               <div class="book-containers">
-                  <?php
-                      $sql = "SELECT * FROM book ORDER BY id DESC LIMIT 5";
-                      $result = mysqli_query($connect, $sql);
-                      while ($rows = mysqli_fetch_array($result)) {
-                          $image = $rows['image'];
-                          $title = $rows['title'];
-                          $sbn = $rows['sbn'];
-                          $author = $rows['author'];
-                          $binding = $rows['binding'];
-                          $id = $rows['id'];
 
-                          echo "<div id='book-trending'>";
-                          echo "<a href='app/detail.php?a=$id'><img src='image/$image' alt='book' class='book-thumbnail'></a>";
-                          echo "</div>";
-                      }
-                    ?>
+                    <% trendingBooks.forEach(book => { %>
+
+                        <div id='book-trending'>
+                          <a href='/details?book_id=<%= book.id %>'><img src='image/<%= book.image %>' alt='book' class='book-thumbnail'></a>
+                        </div>
+                    <% }) %>
               </div>
 
               <p class="trending-header header-reddish" style="font-size: 40px;">Featured Books</p>
 
               <div class="book-containers">
-                  <?php
-                      $sql = "SELECT * FROM book ORDER BY id DESC LIMIT 5, 5";
-                      $result = mysqli_query($connect, $sql);
-                      while ($rows = mysqli_fetch_array($result)) {
-                          $image = $rows['image'];
-                          $title = $rows['title'];
-                          $sbn = $rows['sbn'];
-                          $author = $rows['author'];
-                          $binding = $rows['binding'];
-                          $id = $rows['id'];
+                  <% featuredBooks.forEach(book => { %>
 
-                          echo "<div id='book-trending'>";
-                          echo "<a href='app/detail.php?a=$id'><img src='image/$image' alt='book' class='book-thumbnail'></a>";
-                          echo "</div>";
-                      }
-                    ?>
+                        <div id='book-trending'>
+                          <a href='/details?book_id=<%= book.id %>'><img src='image/<%= book.image %>' alt='book' class='book-thumbnail'></a>
+                        </div>
+                    <% }) %>
+
               </div>
     </div>
 
