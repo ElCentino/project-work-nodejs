@@ -104,9 +104,19 @@ $(document).ready(function () {
 
     $(".next-button").on('click', function() {
         nextRequest.call(this);
+
+        $(".ministries-area ul li").on('click', function(e) {
+            let position = $(".ministries-area").offset().top;
+            animateToPosition(position, 1000);
+        });
     });
 
     $(".prev-button").on('click', function() {
         prevRequest.call(this);
+
+        $(".ministries-area ul li").on('click', function(e) {
+            let position = $(".ministries-area").offset().top;
+            animateToPosition(position, 1000);
+        });
     });
 });
