@@ -105,18 +105,14 @@ $(document).ready(function () {
     $(".next-button").on('click', function() {
         nextRequest.call(this);
 
-        scrollToMinistries();
+        let position = $(".ministries-area").offset().top;
+        body.stop().animate({scrollTop: position}, 1000, 'swing');
     });
 
     $(".prev-button").on('click', function() {
         prevRequest.call(this);
 
-        scrollToMinistries();
-    });
-
-    function scrollToMinistries() {
-
         let position = $(".ministries-area").offset().top;
         body.stop().animate({scrollTop: position}, 1000, 'swing');
-    }
+    });
 });
