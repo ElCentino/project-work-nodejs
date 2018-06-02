@@ -13,6 +13,13 @@ app.use(express.static('./public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
+app.use((req, res, next) => {
+
+    if(req.method === "POST")  console.log("Post request for ", req.url);
+
+    next();
+});
+
 app.get('/', routes.index);
 app.get('/details', routes.details);
 app.get('/account/signup', routes.signup);
@@ -22,6 +29,9 @@ app.get("/api/userslist", apiRoutes.userslist);
 app.get("/api/userslist/:id", apiRoutes.userslist);
 app.get("/api/library", apiRoutes.library);
 app.get("/api/library/:id", apiRoutes.library);
+app.put("/api/library", apiRoutes.addBook);
+app.delete("/api/library/:id", apiRoutes.deleteBook);
+app.post("/api/library/:id", apiRoutes.updateBook);
 app.get('*', routes.E404);
 
 app.use(cors());

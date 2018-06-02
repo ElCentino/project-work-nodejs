@@ -29,7 +29,7 @@
     -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
     background-color: rgba(46, 46, 54, 0.705);
-    border-bottom: 5px var(--orange) solid;
+    border-bottom: 5px var(--redish) solid;
 }
 
 .top-border-bottom:hover {
@@ -51,7 +51,7 @@
 }
 
 .top-nav li:not(:first-child) a:hover {
-    color: var(--cyan);
+    color: var(--redish);
 }
 
 .arrow-left {
@@ -63,7 +63,7 @@
 }
 
 .arrow-left:hover {
-    color: var(--cyan);
+    color: var(--redish);
 }
 
 
@@ -77,7 +77,7 @@ a {
     padding: 50px;
     padding-bottom: 30px;
     text-align: center;
-    border-bottom: 6px var(--orange) solid;
+    border-bottom: 6px var(--redish) solid;
 }
 
 .search-area * {
@@ -115,7 +115,7 @@ a {
 }
 
 .search-area input[type=submit]:hover {
-    background-color: cyan;
+    background-color: var(--cyan);
     cursor: pointer;
 }
 

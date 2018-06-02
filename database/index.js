@@ -36,6 +36,6 @@ module.exports.query = function(sql, callback) {
 
         if (err) throw err;
 
-        callback(result);
+        callback(result, fields);
     });
 };

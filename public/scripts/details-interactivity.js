@@ -1,5 +1,5 @@
 
-window.onload = () => {
+$(document).ready(function() {
 
     const bookImage = document.querySelector(".book-display");
     const viewElement = document.querySelector(".book-display-view");
@@ -14,25 +14,21 @@ window.onload = () => {
     let bookHeight = bookImage.offsetHeight;
 
     const shortenString = (text, length = 300, dots = 7) => text.substring(0, length) + Array(dots).fill(".").map(dot => dot).join("");
-   
-
-    // $(detailDisplay).hover(() => {
-    //     $(bookImageInfo).show();
-    // }, () => {
-    //     $(bookImageInfo).hide();
-    // });
 
     const actualFigureText = infoFigure.innerHTML;
 
     infoFigure.innerHTML = shortenString(actualFigureText, SHORTENED_STRING_LENGTH);
 
-    window.onscroll = e => {
+    $(window).on('scroll', function() {
 
-        if(this.scrollY > 140) {
-            topNav.classList.add("top-border-bottom")
+        if(this.scrollY > $(".body-details").offset().top) {
+            topNav.classList.add("top-border-bottom");
         } else {
-            topNav.classList.remove("top-border-bottom")
+            topNav.classList.remove("top-border-bottom");
         }
-    }
+    });
 
-};
+    $(".more-details").on('click', function() {
+        $("body, html").stop().animate({scrollTop: $(".details-header").offset().top}, 1000, 'swing');
+    });
+});

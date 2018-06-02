@@ -11,10 +11,8 @@
                     </div>
                 </div>
 
-                <a href="#book-ref">
-                    <button type="submit" class="btn-butt rounded-button-sm" style="margin-top: 70px">
+                <button type="submit" class="more-details btn-butt rounded-button-sm" style="margin-top: 70px">
                         <i class="far fa-hdd" style="float: left; margin-left: 20px"></i>More Details</button>
-                </a>
             </div>
         </div>
         <div class="book-details">
@@ -30,7 +28,7 @@
                 </header>
                 <figure class="info-figure">
                     <p>
-                        <%= description %>
+                        <%= description.substring(0, 500) %>
                     </p>
                 </figure>
 

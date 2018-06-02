@@ -69,3 +69,49 @@ module.exports.library = (req, res) => {
         });
     }
 };
+
+module.exports.addBook = (req, res) => {
+
+    const { title, image, author, sbn, binding, price, description } = req.query;
+
+    if(title && author && sbn && binding && price && description) {
+
+        database.query(`INSERT INTO book(title, image, author, sbn, binding, Price, description) VALUES ("${title}", "${image}", "${author}", "${sbn}", "${binding}", "${price}", "${description}")`, result => {
+            console.log(result);
+        });
+
+        res.end("Book Added");
+
+    } else {
+
+        res.end("Please provide all the details");
+    }
+};
+
+module.exports.deleteBook = (req, res) => {
+
+    const { id } = req.params;
+
+    if(id) {
+
+        database.query(`DELETE FROM book where id=${id}`, result => {
+            
+            if(result.affectedRows > 0) {
+
+                res.end("Book was Deleted");
+            } else {
+
+                res.end("Book was not found, no changes made");
+            }
+        });
+
+    } else {
+
+        res.end("Please enter a valid book id");
+    }
+};
+
+module.exports.updateBook = (req, res) => {
+
+    
+};
