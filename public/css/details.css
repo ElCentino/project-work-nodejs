@@ -240,14 +240,14 @@ a {
 }
 
 .info-figure {
-    border-left: 5px solid var(--orange);
+    border-left: 5px solid var(--redish);
     padding: 15px;
     padding-left: 35px;
     background: var(--ash-light);
 }
 
 .badges {
-    background: var(--orange);
+    background: var(--redish);
     padding: 5px;
     margin: 5px;
     border-radius: 30px;
@@ -265,7 +265,7 @@ a {
     text-align: center;
     vertical-align: middle;
     font-size: 28px;
-    border: 2px var(--orange) solid;
+    border: 2px var(--redish) solid;
 }
 
 .cart-button {
@@ -640,11 +640,13 @@ a {
 }
 
 .face_active, .skype_active, .insta_active, .twitt_active {
+    -webkit-transition: .2s ease-in-out;
     transition: .2s ease-in-out;
 }
 
 .face_active:hover, .skype_active:hover, .insta_active:hover, .twitt_active:hover {
-    filter: invert(100%);
+    -webkit-filter: invert(100%);
+            filter: invert(100%);
 }
 
 /* Responsive Code begins*/

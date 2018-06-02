@@ -2,7 +2,7 @@ const database = require('../database');
 
 
 const renderShiftedResults = (res, result) => {
-
+    
     result.shift();
     res.json(result);
 };
