@@ -30,12 +30,24 @@ try {
     console.log("Could not connect to database : " + error);
 }
 
-module.exports.query = function(sql, callback) {
+module.exports.query = function(statement, callback, arr) {
+
+    if(arr) {
+
+        conn.query(statement, [...arr], (err, result, fields) => {
+
+            if(err) throw err;
     
-    conn.query(sql, function (err, result, fields) {
+            if(callback) return callback(result);
+        });
 
-        if (err) throw err;
+    } else {
 
-        callback(result, fields);
-    });
+        conn.query(statement, (err, result, fields) => {
+
+            if(err) throw err;
+    
+            if(callback) return callback(result, fields);
+        });
+    }
 };
