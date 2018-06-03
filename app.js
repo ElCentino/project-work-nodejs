@@ -20,6 +20,8 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use(cors());
+
 app.get('/', routes.index);
 app.get('/details', routes.details);
 app.get('/account/signup', routes.signup);
@@ -33,8 +35,6 @@ app.put("/api/library", apiRoutes.addBook);
 app.delete("/api/library/:id", apiRoutes.deleteBook);
 app.post("/api/library/:id", apiRoutes.updateBook);
 app.get('*', routes.E404);
-
-app.use(cors());
 
 const server = app.listen(process.env.PORT || 3000, () => {
 
