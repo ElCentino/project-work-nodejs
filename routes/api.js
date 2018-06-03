@@ -46,7 +46,7 @@ module.exports.userslist = (req, res) => {
     }  
 };
 
-module.exports.library = (req, res) => {
+module.exports.library = (req, res, next) => {
 
     const { author, col, length, order, structure } = req.query;
 
