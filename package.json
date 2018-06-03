@@ -4,23 +4,34 @@
   "description": "An App",
   "main": "app.js",
   "scripts": {
-    "prestart" : "mocha",
-    "start": "node app.js",
-    "test": "node_modules/.bin/mocha --reporter mocha-circleci-reporter test/*.js"
+    "prestart": "webpack",
+    "start": "mocha",
+    "poststart": "node app.js",
+    "test": "node_modules/.bin/mocha --reporter mocha-circleci-reporter test/*.js",
+    "dev": "webpack"
   },
   "author": "Me",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
-    "mysql": "^2.15.0"
+    "mysql": "^2.15.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.2",
     "chai": "^4.1.2",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
     "ejs": "^2.6.1",
+    "json-loader": "^0.5.7",
     "mocha": "^5.1.1",
-    "mocha-circleci-reporter": "0.0.3"
+    "mocha-circleci-reporter": "0.0.3",
+    "webpack": "^3.1.0"
   }
 }

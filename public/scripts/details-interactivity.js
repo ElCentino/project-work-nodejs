@@ -7,21 +7,30 @@ $(document).ready(function() {
     const bookImageInfo = document.querySelector(".book-display-info");
     const infoFigure = document.querySelector(".info-figure p");
     const topNav = document.querySelector(".top");
+
+    try {
+        
+        const SHORTENED_STRING_LENGTH = 300;
     
-    const SHORTENED_STRING_LENGTH = 300;
+        let bookWidth = bookImage.offsetWidth;
+        let bookHeight = bookImage.offsetHeight;
+    
+        const shortenString = (text, length = 300, dots = 7) => text.substring(0, length) + Array(dots).fill(".").map(dot => dot).join("");
+    
+        const actualFigureText = infoFigure.innerHTML;
+    
+        infoFigure.innerHTML = shortenString(actualFigureText, SHORTENED_STRING_LENGTH);
 
-    let bookWidth = bookImage.offsetWidth;
-    let bookHeight = bookImage.offsetHeight;
+    } catch(e) {
 
-    const shortenString = (text, length = 300, dots = 7) => text.substring(0, length) + Array(dots).fill(".").map(dot => dot).join("");
+        console.log("Not in details page then");
+    }
 
-    const actualFigureText = infoFigure.innerHTML;
-
-    infoFigure.innerHTML = shortenString(actualFigureText, SHORTENED_STRING_LENGTH);
+   
 
     $(window).on('scroll', function() {
 
-        if(this.scrollY > $(".body-details").offset().top) {
+        if(this.scrollY > $(".body-details, .api-body").offset().top) {
             topNav.classList.add("top-border-bottom");
         } else {
             topNav.classList.remove("top-border-bottom");

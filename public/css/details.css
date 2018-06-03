@@ -649,6 +649,30 @@ a {
             filter: invert(100%);
 }
 
+.result-pane {
+    width: 100%;
+    height: auto;
+    color: white;
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    padding: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.results li * {
+    display: inline;
+}
+
+.results li {
+    padding: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+.results li img {
+    width: 150px;
+    height: 200px;
+}
+
 /* Responsive Code begins*/
 
 

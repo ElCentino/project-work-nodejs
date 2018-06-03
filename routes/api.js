@@ -2,7 +2,7 @@ const database = require('../database');
 
 
 const renderShiftedResults = (res, result) => {
-    
+
     result.shift();
     res.json(result);
 };
@@ -48,6 +48,8 @@ module.exports.userslist = (req, res) => {
 
 module.exports.library = (req, res) => {
 
+    const { author, col, length, order, structure } = req.query;
+
     if(req.params.id) {
 
         database.query(`SELECT id, title, author, sbn, binding, Price, description FROM book WHERE id = ${req.params.id}`, result => {
@@ -58,15 +60,26 @@ module.exports.library = (req, res) => {
                 renderAllResults(res, result);
             }
         });
+
     } else {
 
-        database.query("SELECT * FROM book", colums => {
+        if(structure) {
 
-            database.query(`SELECT id, title, author, sbn, binding, Price, description FROM book WHERE ${typeof req.query.author != 'undefined' ? "author = " : "id > "}  '${typeof req.query.author != 'undefined' ? req.query.author : "-1"}'ORDER BY ${req.query.col || "id"} ${req.query.order == "desc" ? "DESC" : "ASC"} LIMIT ${req.query.length || colums.length}`, result => {
-                
+            database.query(`SELECT id, title, image, author, sbn, binding, Price, description FROM book WHERE title LIKE "%${structure}%" LIMIT ${length || 5}`, result => {
+                    
                 renderAllResults(res, result);
             });
-        });
+
+        } else {
+
+            database.query("SELECT * FROM book", colums => {
+
+                database.query(`SELECT id, title, image, author, sbn, binding, Price, description FROM book WHERE ${typeof author != 'undefined' ? "author = " : "id > "}  '${typeof author != 'undefined' ? author : "-1"}'ORDER BY ${col || "id"} ${order == "desc" ? "DESC" : "ASC"} LIMIT ${length || colums.length}`, result => {
+                    
+                    renderAllResults(res, result);
+                });
+            });
+        }
     }
 };
 
@@ -112,6 +125,24 @@ module.exports.deleteBook = (req, res) => {
 };
 
 module.exports.updateBook = (req, res) => {
-
     
+    const { id } = req.params;
+    const { col, val } = req.query;
+
+    if(id) {
+
+        if(col && val) {
+
+            database.query(`UPDATE book SET ${col}="${val}" WHERE id=${id}`);
+            res.end("Book successfully updated");
+        } else {
+
+            res.end("Please enter valid queries");
+        }
+
+        
+    } else {
+
+        res.end("Book not found, no changes made");
+    }
 };
