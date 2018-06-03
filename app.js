@@ -6,6 +6,8 @@ const apiRoutes = require('./routes/api');
 
 const app = express();
 
+app.use(cors());
+
 app.set('view engine', 'ejs');
 
 app.use(express.static('./public'));
@@ -19,8 +21,6 @@ app.use((req, res, next) => {
 
     next();
 });
-
-app.use(cors());
 
 app.get('/', routes.index);
 app.get('/details', routes.details);

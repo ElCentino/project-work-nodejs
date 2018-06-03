@@ -45,18 +45,6 @@ export class Application extends Component {
 
     componentWillMount() {
 
-        this.setState({
-            books: [
-               {
-                   id: 4545454545, 
-                   title: "Some Random Book"
-               },
-               {
-                id: 4545434354545, 
-                title: "Some Random Book 2"
-               }
-            ]
-        });
     }
 
     render() {
