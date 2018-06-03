@@ -18,7 +18,7 @@ export class Application extends Component {
         let searchResults = [];
 
         const xhr = new XMLHttpRequest();
-        xhr.open('GET', `http://localhost:3000/api/library?structure=${value.replace(/^"|"$/g, '')}&length=5`);
+        xhr.open('GET', `/api/library?structure=${value.replace(/^"|"$/g, '')}&length=5`);
 
         xhr.onload = () => {
             
