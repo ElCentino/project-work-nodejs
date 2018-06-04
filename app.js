@@ -31,10 +31,14 @@ app.get("/api/userslist", apiRoutes.userslist);
 app.get("/api/userslist/:id", apiRoutes.userslist);
 app.get("/api/library", apiRoutes.library);
 app.get("/api/library/:id", apiRoutes.library);
-app.put("/api/library", apiRoutes.addBook);
+app.post("/api/library", apiRoutes.addBook);
 app.delete("/api/library/:id", apiRoutes.deleteBook);
-app.post("/api/library/:id", apiRoutes.updateBook);
+app.put("/api/library/:id", apiRoutes.updateBook);
 app.get('*', routes.E404);
+app.post('*', routes.E404);
+app.delete('*', routes.E404);
+app.put('*', routes.E404);
+
 
 const server = app.listen(process.env.PORT || 3000, () => {
 

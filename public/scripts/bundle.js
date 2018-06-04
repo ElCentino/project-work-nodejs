@@ -20240,9 +20240,9 @@ var Application = exports.Application = function (_Component) {
             var searchResults = [];
 
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'http://localhost:3000/api/library?structure=' + value.replace(/^"|"$/g, '') + '&length=5');
+            xhr.open('GET', '/api/library?structure=' + value.replace(/^"|"$/g, '') + '&length=5');
 
-            xhr.onload = function () {
+            xhr.onreadystatechange = function () {
 
                 var books = JSON.parse(xhr.responseText);
 
@@ -20287,18 +20287,7 @@ var Application = exports.Application = function (_Component) {
         }
     }, {
         key: 'componentWillMount',
-        value: function componentWillMount() {
-
-            this.setState({
-                books: [{
-                    id: 4545454545,
-                    title: "Some Random Book"
-                }, {
-                    id: 4545434354545,
-                    title: "Some Random Book 2"
-                }]
-            });
-        }
+        value: function componentWillMount() {}
     }, {
         key: 'render',
         value: function render() {

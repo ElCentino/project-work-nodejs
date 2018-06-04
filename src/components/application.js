@@ -20,7 +20,7 @@ export class Application extends Component {
         const xhr = new XMLHttpRequest();
         xhr.open('GET', `/api/library?structure=${value.replace(/^"|"$/g, '')}&length=5`);
 
-        xhr.onload = () => {
+        xhr.onreadystatechange = () => {
             
             const books = JSON.parse(xhr.responseText);
 
