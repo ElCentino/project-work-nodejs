@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import { Searchbar } from './searchbar'
 import { ResultPane } from './resultpane'
-import { rejects } from 'assert';
 
 export class Application extends Component {
 
@@ -29,10 +28,10 @@ export class Application extends Component {
 
                 const filteredBooks = books.filter(book => {
 
-                    return book.title.toLowerCase().startsWith(value.toLowerCase()) && value.length > 0;
+                    return value.length != 0;
                 });
         
-                for(const result of filteredBooks) {
+                for(const result of books) {
                     searchResults.push(result);
                 }
 
@@ -54,9 +53,25 @@ export class Application extends Component {
         this.getData(value).then(
         
             result => {
-                this.setState({
-                    books: result
-                });
+
+                if(value.length <= 0) {
+
+                    $(".result-pane").fadeOut(() => {
+
+                        this.setState({
+                            books: []
+                        });
+                    });
+
+                } else {
+
+                    $(".result-pane").fadeIn(() => {
+
+                        this.setState({
+                            books: result
+                        });
+                    });
+                }
             }, 
             reason => {
                 console.log(reason);

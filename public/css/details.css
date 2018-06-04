@@ -650,11 +650,11 @@ a {
 }
 
 .result-pane {
+    position: absolute;
     width: 100%;
     height: auto;
     color: white;
     background: rgba(0, 0, 0, 0.9);
-    position: absolute;
     transition: 0.3s ease-in-out;
     display: table;
 }
