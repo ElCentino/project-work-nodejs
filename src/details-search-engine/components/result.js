@@ -12,7 +12,7 @@ export const Result = (props) => (
             <li><span className="result-title">Price : </span>{props.price}</li>
         </ul>
 
-        <span type="submit" className="lefter buy-but"><i class="fas fa-shopping-cart cart-icon"></i></span>
+        <span type="submit" className="lefter buy-but"><i className="fas fa-shopping-cart cart-icon"></i></span>
         <div className="clear-fix"></div>
     </li>
 );

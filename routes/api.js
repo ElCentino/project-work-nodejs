@@ -65,7 +65,7 @@ module.exports.library = (req, res) => {
 
         if(structure) {
 
-            database.query(`SELECT id, title, image, author, sbn, binding, Price, description FROM book WHERE title LIKE "%${structure}%" LIMIT ${typeof req.query.length !== undefined ? req.query.length : 5}`, result => {
+            database.query(`SELECT id, title, image, author, sbn, binding, Price, description FROM book WHERE ('author' LIKE '%${structure}%') LIMIT ${typeof req.query.length !== undefined ? req.query.length : 5}`, result => {
                     
                 renderAllResults(res, result);
             });

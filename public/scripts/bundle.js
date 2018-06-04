@@ -20309,6 +20309,11 @@ var Application = exports.Application = function (_Component) {
                     resolve(searchResults);
                 };
 
+                xhr.onerror = function () {
+
+                    reject("Error from Client-side");
+                };
+
                 xhr.send();
             });
         }
@@ -20321,7 +20326,9 @@ var Application = exports.Application = function (_Component) {
                 _this2.setState({
                     books: result
                 });
-            }, function (reason) {});
+            }, function (reason) {
+                console.log(reason);
+            });
         }
     }, {
         key: 'render',
@@ -20501,7 +20508,7 @@ var Result = exports.Result = function Result(props) {
         React.createElement(
             "span",
             { type: "submit", className: "lefter buy-but" },
-            React.createElement("i", { "class": "fas fa-shopping-cart cart-icon" })
+            React.createElement("i", { className: "fas fa-shopping-cart cart-icon" })
         ),
         React.createElement("div", { className: "clear-fix" })
     );
