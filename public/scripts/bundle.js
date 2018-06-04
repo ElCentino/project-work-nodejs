@@ -20242,7 +20242,7 @@ var Application = exports.Application = function (_Component) {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', '/api/library?structure=' + value.replace(/^"|"$/g, '') + '&length=5');
 
-            xhr.onreadystatechange = function () {
+            xhr.onloadend = function () {
 
                 var books = JSON.parse(xhr.responseText);
 
@@ -20279,15 +20279,10 @@ var Application = exports.Application = function (_Component) {
                 _this2.setState({
                     books: searchResults
                 });
-
-                console.log(searchResults);
             };
 
             xhr.send();
         }
-    }, {
-        key: 'componentWillMount',
-        value: function componentWillMount() {}
     }, {
         key: 'render',
         value: function render() {
@@ -20379,7 +20374,7 @@ var _result = __webpack_require__(28);
 var getBooks = function getBooks(props) {
 
     var books = props.results.map(function (result) {
-        return React.createElement(_result.Result, { key: result.id, result: result.title, image: result.image });
+        return React.createElement(_result.Result, { key: result.id, id: result.id, title: result.title, image: result.image, author: result.author, price: result.Price, binding: result.binding });
     });
 
     console.log(props.results);
@@ -20413,9 +20408,62 @@ Object.defineProperty(exports, "__esModule", {
 var Result = exports.Result = function Result(props) {
     return React.createElement(
         "li",
-        null,
-        React.createElement("img", { src: "/image/" + props.image }),
-        props.result
+        { className: "result-item" },
+        React.createElement(
+            "a",
+            { href: "/details?book_id=" + props.id },
+            React.createElement("img", { src: "/image/" + props.image, className: "result-image lefter" })
+        ),
+        React.createElement(
+            "ul",
+            { className: "lefter" },
+            React.createElement(
+                "li",
+                null,
+                React.createElement(
+                    "span",
+                    { className: "result-title" },
+                    "Title : "
+                ),
+                props.title
+            ),
+            React.createElement(
+                "li",
+                null,
+                React.createElement(
+                    "span",
+                    { className: "result-title" },
+                    "Author : "
+                ),
+                props.author
+            ),
+            React.createElement(
+                "li",
+                null,
+                React.createElement(
+                    "span",
+                    { className: "result-title" },
+                    "Binding : "
+                ),
+                props.binding
+            ),
+            React.createElement(
+                "li",
+                null,
+                React.createElement(
+                    "span",
+                    { className: "result-title" },
+                    "Price : "
+                ),
+                props.price
+            )
+        ),
+        React.createElement(
+            "span",
+            { type: "submit", className: "lefter buy-but" },
+            React.createElement("i", { "class": "fas fa-shopping-cart cart-icon" })
+        ),
+        React.createElement("div", { className: "clear-fix" })
     );
 };
 

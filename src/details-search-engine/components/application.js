@@ -20,7 +20,7 @@ export class Application extends Component {
         const xhr = new XMLHttpRequest();
         xhr.open('GET', `/api/library?structure=${value.replace(/^"|"$/g, '')}&length=5`);
 
-        xhr.onreadystatechange = () => {
+        xhr.onloadend = () => {
             
             const books = JSON.parse(xhr.responseText);
 
@@ -36,15 +36,9 @@ export class Application extends Component {
             this.setState({
                 books: searchResults
             });
-    
-            console.log(searchResults);
         }
 
         xhr.send();
-    }
-
-    componentWillMount() {
-
     }
 
     render() {

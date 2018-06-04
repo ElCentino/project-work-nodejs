@@ -655,22 +655,64 @@ a {
     color: white;
     background: rgba(0, 0, 0, 0.9);
     position: absolute;
-    padding: 10px;
+    transition: 0.3s ease-in-out;
+    display: table;
+}
+
+.lefter {
+    margin: 2% 2%;
+    float: left;
+}
+
+.result-image {
+    width: 15%;
+    height: 250px;
+}
+
+.results {
     transition: 0.3s ease-in-out;
 }
 
-.results li * {
-    display: inline;
-}
-
-.results li {
+.results > li {
     padding: 20px;
     transition: 0.3s ease-in-out;
+    display: block;
 }
 
-.results li img {
-    width: 150px;
-    height: 200px;
+.result-item:hover {
+    background: black;
+}
+
+.results > li > ul {
+    width: 60%;
+}
+
+.results > li > ul > li {
+    list-style-type: none;
+    line-height: 20px;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: lighter;
+}
+
+.results li button {
+    width: 10%;
+}
+
+.result-title {
+    font-family: 'Pacifico', cursive;
+    color: var(--redish);
+}
+
+.cart-icon {
+    font-size: 70px;
+    line-height: 50px;
+    padding-top: 80px;
+    transition: .3s;
+}
+
+.cart-icon:hover {
+    color: var(--redish);
 }
 
 /* Responsive Code begins*/

@@ -3,7 +3,7 @@ import { Result } from './result'
 const getBooks = (props) => {
 
     let books = props.results.map(result => (
-        <Result key={result.id} result={result.title} image={result.image}/>
+        <Result key={result.id} id={result.id} title={result.title} image={result.image} author={result.author} price={result.Price} binding={result.binding}/>
     ));
 
     console.log(props.results);

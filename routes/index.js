@@ -20,6 +20,13 @@ module.exports.details = (req, res) => {
             const index = req.query.book_id;
     
             const data = result.filter(book => book.id == index);
+
+            if(data.length <= 0) {
+                res.render('404', {
+                    title: "Book Not Found",
+                    content: "book"
+                })
+            }
     
             const shuffleData = arr => {
     
@@ -58,7 +65,8 @@ module.exports.details = (req, res) => {
     } else {
 
         res.render('404', {
-            title: "404 File Not Found"
+            title: "404 File Not Found",
+            content: "URL"
         });
     }  
 };
@@ -158,6 +166,7 @@ module.exports.apiPath = (req, res) => {
 module.exports.E404 = (req, res) => {
 
     res.render('404', {
-        title: "404 File Not Found"
+        title: "404 File Not Found",
+        content: "URL"
     });
 };
